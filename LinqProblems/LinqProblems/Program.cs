@@ -10,6 +10,9 @@ namespace LinqProblems
     {
         static void Main(string[] args)
         {
+            Test test = new Test();
+            test.Run();
+            Console.ReadKey();
             Console.WriteLine("num1");
             var (num1LinqBegin1, num2LinqBegin1) = LinqBegin1();
             Console.WriteLine($"{num1LinqBegin1}, {num2LinqBegin1}");
@@ -201,12 +204,12 @@ namespace LinqProblems
             {
                 Console.WriteLine(num);
             }
-            //Console.WriteLine("num47");
-            //var numLinqBegin47 = LinqBegin47();
-            //foreach (var num in numLinqBegin47)
-            //{
-            //    Console.WriteLine(num);
-            //}
+            Console.WriteLine("num47");
+            var numLinqBegin47 = LinqBegin47();
+            foreach (var num in numLinqBegin47)
+            {
+                Console.WriteLine(num);
+            }
             Console.WriteLine("num48");
             var numLinqBegin48 = LinqBegin48();
             foreach (var num in numLinqBegin48)
@@ -905,32 +908,62 @@ namespace LinqProblems
             };
             return A.Join(B, x => x.ToString()[x.ToString().Length - 1], y => y.ToString()[y.ToString().Length - 1], (x, y) => x.ToString()[0] != y.ToString()[0] ? Convert.ToString($"{x}-{y}") : Convert.ToString($"{y}-{x}"));
         }
-        //static IEnumerable<string> LinqBegin47()
-        //{
-        //    List<int> A = new List<int>()
-        //    {
-        //        53,
-        //        1,
-        //        5,
-        //        3,
-        //        4,
-        //        100,
-        //        84,
-        //        81
-        //    };
-        //    List<int> B = new List<int>()
-        //    {
-        //        23,
-        //        12,
-        //        45,
-        //        2,
-        //        53,
-        //        856,
-        //        76
-        //    };
-        //    return A.Join(B, x => x.ToString()[x.ToString().Length - 1], y => y.ToString()[0], (x, y) => x.ToString()[0] != y.ToString()[0] ? Convert.ToString($"{x}:{y}") : Convert.ToString($"{y}:{x}"));
-        //}
-        //static IEnumerable<string> LinqBegin48()
+        static IEnumerable<string> LinqBegin47()
+        {
+            List<int> A = new List<int>()
+            {
+                53,
+                1,
+                5,
+                3,
+                4,
+                100,
+                84,
+                21
+            };
+            List<int> B = new List<int>()
+            {
+                23,
+                12,
+                45,
+                2,
+                53,
+                856,
+                76
+            };
+            return A.Join(B, x => x.ToString()[x.ToString().Length - 1], y => y.ToString()[0], (x, y) => x.ToString()[0] != y.ToString()[0] ? Convert.ToString($"{x}:{y}") : Convert.ToString($"{y}:{x}")).OrderBy(x => x);
+        }
+        static IEnumerable<string> LinqBegin48()
+        {
+            List<string> A = new List<string>()
+            {
+                "123D12SD",
+                "123DDEW",
+                "12AD2E",
+                "DEW23D",
+                "12SAD2E",
+                "DAD2DS",
+                "WE2FDWEF",
+                "GRTG34",
+                "FERFE",
+                "FQWEF23",
+                "2WED2Q3",
+                "FWEFWEF"
+            };
+            List<string> B = new List<string>()
+            {
+                "FQWE32D",
+                "D32DQ",
+                "12EDASF",
+                "2E2DWD",
+                "DW32DS",
+                "3DWD32D",
+                "DQWED3",
+                "23D2D"
+            };
+            return A.Join(B, x => x.Length, y => y.Length, (x, y) => x.ToString()[0] != y.ToString()[0] ? Convert.ToString($"{x.OrderBy(x1 => x1)}:{y}") : Convert.ToString($"{y.OrderByDescending(y1 => y1)}:{x}"));
+        }
+        //static IEnumerable<string> LinqBegin49()
         //{
         //    List<string> A = new List<string>()
         //    {
@@ -958,7 +991,18 @@ namespace LinqProblems
         //        "DQWED3",
         //        "23D2D"
         //    };
-        //    return A.Join(B, x => x.Length, y => y.Length, (x, y) => x.ToString()[0] != y.ToString()[0] ? Convert.ToString($"{x.OrderBy(x1 => x1)}:{y}") : Convert.ToString($"{y.OrderByDescending(y1 => y1)}:{x}"));
+        //    List<string> C = new List<string>()
+        //    {
+        //        "FWAFE32D",
+        //        "DEFDQ",
+        //        "WEF3EDASF",
+        //        "3WFWDAS",
+        //        "WFEW32DS3R",
+        //        "NGHWD32D",
+        //        "5HGFHWED3ASF",
+        //        "23DAS2DASF"
+        //    };
+        //    return A.GroupJoin(B, C, x => x[0], y => y[0], y => y[0], (x, y, z) => x.ToString()[0] != y.ToString()[0] ? Convert.ToString($"{x.OrderBy(x1 => x1)}:{y}") : Convert.ToString($"{y}:{x}"));
         //}
 
 
