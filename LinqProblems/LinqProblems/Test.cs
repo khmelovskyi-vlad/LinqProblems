@@ -41,6 +41,21 @@ namespace LinqProblems
             Problem24();
             Problem25();
             Problem26();
+            Problem27();
+            Problem28();
+            Problem29();
+            Problem30();
+            Problem31();
+            Problem32();
+            Problem33();
+            Problem34();
+            Problem35();
+            Problem36();
+            Problem37();
+            Problem38();
+            Problem39();
+            Problem40();
+            Problem41();
         }
         static void Problem1()
         {
@@ -575,6 +590,356 @@ namespace LinqProblems
             var B = A.Take(K2 - K1 + 1).Skip(K1 - 1).Average(x => (double)x);
             Console.WriteLine(B);
         }
+        static void Problem27()
+        {
+            Console.WriteLine("Problem27");
+            var D = 8;
+            List<int> A = new List<int>()
+            {
+                5,
+                -59,
+                -127,
+                -27,
+                -22,
+                8,
+                7,
+                37,
+                -34,
+                6,
+                39,
+                37,
+                -16874
+            };
+            var B = A.SkipWhile(x => x <= D).Where(x => x % 2 != 0 && x > 0).Reverse();
+            OutputInt(B);
+        }
+        static void Problem28()
+        {
+            Console.WriteLine("Problem28");
+            var L = 10;
+            List<string> A = new List<string>()
+            {
+                "SF3A",
+                "FGNFG56NA",
+                "ASF3A",
+                "WEF2R",
+                "SDF45FFD5F2",
+                "D3FF",
+                "FS2546DF56SF",
+                "D3FF4",
+                "FSD54F8SDF",
+                "FAA6AAAAA",
+                "SDFSDF2356523FWDF4",
+                "RR3R6",
+                "FAS3FSDFSDF",
+                "R34F6",
+                "12345"
+            };
+            var B = A.TakeWhile(x => x.Length < L).Where(x => x[x.Length - 1] >= 'A' && x[x.Length - 1] <= 'Z').OrderByDescending(x => x.Length).ThenBy(x => x);
+            OutputString(B);
+        }
+        static void Problem29()
+        {
+            Console.WriteLine("Problem29");
+            var D = 8;
+            var K = 7;
+            List<int> A = new List<int>()
+            {
+                -59,
+                37,
+                -127,
+                37,
+                -27,
+                -22,
+                8,
+                5,
+                7,
+                5,
+            };
+            var first = A.TakeWhile(x => x < D);
+            var second = A.Skip(K - 1);
+            var B = first.Union(second).OrderByDescending(x => x);
+            OutputInt(B);
+        }
+        static void Problem30()
+        {
+            Console.WriteLine("Problem30");
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            var K = 7;
+            List<int> A = new List<int>()
+            {
+                -59,
+                37,
+                -127,
+                37,
+                -27,
+                -22,
+                -53,
+                8,
+                5,
+                7,
+                5,
+            };
+            var first = A.Where(x => x % 2 == 0);
+            var second = A.Skip(K);
+            var firstNeed = first.Except(second);
+            var secondNeed = second.Except(first);
+            var B = firstNeed.Union(secondNeed).Reverse();
+            OutputInt(B);
+        }
+        static void Problem31()
+        {
+            Console.WriteLine("Problem31");
+            var K = 10;
+            IEnumerable<string> A = new List<string>()
+            {
+                "SF3A",
+                "FS2546DF56SF",
+                "FGNFG56NA",
+                "ASF3A",
+                "WEF2R",
+                "SDF45FFD5F2",
+                "D3FF",
+                "D3FF4",
+                "FSD54F8SDF",
+                "SDFSDF2356523FWDF4",
+                "12345",
+                "R34F6",
+                "SF3A",
+                "FAS3FSDFSDF",
+                "FAA6AAAAA",
+                "FS2546DF56SF",
+            };
+            var first = A.Take(K);
+            var second = A.Reverse().TakeWhile(x => x[x.Length - 1] <= '0' || x[x.Length - 1] >= '9');
+            var B = first.Intersect(second).OrderBy(x => x.Length).ThenBy(x => x);
+            OutputString(B);
+        }
+        static void Problem32()
+        {
+            Console.WriteLine("Problem32");
+            List<string> A = new List<string>()
+            {
+                "SF3A",
+                "FGNFG56NA",
+                "ASF3A",
+                "WEF2R",
+                "SDF45FFD5F2",
+                "D3FF",
+                "FS2546DF56SF",
+                "D3FF4",
+                "FSD54F8SDF",
+                "FAA6AAAAA",
+                "SDFSDF2356523FWDF4",
+                "RR3R6",
+                "FAS3FSDFSDF",
+                "R34F6",
+                "12345"
+            };
+            var B = A.Select(x => x[0]).Reverse();
+            OutputChar(B);
+        }
+        static void Problem33()
+        {
+            Console.WriteLine("Problem33");
+            List<int> A = new List<int>()
+            {
+                -59,
+                37,
+                -127,
+                37,
+                -27,
+                -22,
+                -53,
+                8,
+                5,
+                7,
+                5,
+            };
+            var B = A.Where(x => x > 0).Select(x => Convert.ToInt32(x.ToString()[x.ToString().Length - 1].ToString())).Distinct();
+            OutputInt(B);
+        }
+        static void Problem34()
+        {
+            Console.WriteLine("Problem34");
+            List<int> A = new List<int>()
+            {
+                37,
+                37,
+                8,
+                5,
+                7,
+                5,
+            };
+            var B = A.Where(x => x % 2 != 0).Select(x => x.ToString()).OrderBy(x => x);
+            OutputString(B);
+        }
+        static void Problem35()
+        {
+            Console.WriteLine("Problem35");
+            List<int> A = new List<int>()
+            {
+                -59,
+                37,
+                -127,
+                37,
+                -27,
+                -22,
+                -53,
+                8,
+                5,
+                7,
+                5,
+            };
+            int i = 1;
+            var B = A.Select(x => (i++)*x).Where(x => x > 9 && x < 100).Reverse();
+            OutputInt(B);
+        }
+        static void Problem36()
+        {
+            Console.WriteLine("Problem36");
+            List<string> A = new List<string>()
+            {
+                "SF3A",
+                "FGNFG56NA",
+                "ASF3A",
+                "WEF2R",
+                "SDF45FFD5F2",
+                "D3FF",
+                "FS2546DF56SF",
+                "D3FF4",
+                "FSD54F8SDF",
+                "FAA6AAAAA",
+                "SDFSDF2356523FWDF4",
+                "RR3R6",
+                "FAS3FSDFSDF",
+                "R34F6",
+                "12345"
+            };
+            var B = A.Select(x => x.Length % 2 != 0 ? x[0] : x[x.Length - 1]).OrderByDescending(x => x);
+            OutputChar(B);
+        }
+        static void Problem37()
+        {
+            Console.WriteLine("Problem37");
+            List<string> A = new List<string>()
+            {
+                "SFA",
+                "FGNFFDSNA",
+                "ASFA",
+                "WEFR",
+                "",
+                "SDFFFDF",
+                "",
+                "DFF",
+                "FSDFSF",
+                "DFF",
+                "",
+                "FSDFSDF",
+                "FAADFVAAAAA",
+                "SDFSDFFWDF",
+                "RRDRSDF",
+                "FAS3FSDFSDF",
+                "RF",
+            };
+            var i = 1;
+            var B = A.Select(x => { if (x == "") { i++; return x = ""; } else return x = $"{x}{i++}"; }).Where(x => x != "").OrderBy(x => x);
+            OutputString(B);
+        }
+        static void Problem38()
+        {
+            Console.WriteLine("Problem38");
+            List<int> A = new List<int>()
+            {
+                -59,
+                37,
+                -127,
+                37,
+                -27,
+                -22,
+                -53,
+                8,
+                5,
+                7,
+                5,
+            };
+            var B = A.Where(x => x % 3 != 0).Select(x => x % 3 == 1 ? x * x : x);
+            OutputInt(B);
+        }
+        static void Problem39()
+        {
+            Console.WriteLine("Problem39");
+            List<string> A = new List<string>()
+            {
+                "SF3A",
+                "FGNFG56NA",
+                "ASF3A",
+                "WEF2R",
+                "SDF45FFD5F2",
+                "D3FF",
+                "FS2546DF56SF",
+                "D3FF4",
+                "FSD54F8SDF",
+                "FAA6AAAAA",
+                "SDFSDF2356523FWDF4",
+                "RR3R6",
+                "FAS3FSDFSDF",
+                "R34F6",
+                "12345"
+            };
+            var B = A.SelectMany(x => x.Where(y => y >= '0' && y <= '9'));
+            OutputChar(B);
+        }
+        static void Problem40()
+        {
+            Console.WriteLine("Problem40");
+            var K = 5;
+            List<string> A = new List<string>()
+            {
+                "SF3A",
+                "FGNFG56NA",
+                "ASF3A",
+                "WEF2R",
+                "SDF45FFD5F2",
+                "D3FF",
+                "FS2546DF56SF",
+                "D3FF4",
+                "FSD54F8SDF",
+                "FAA6AAAAA",
+                "SDFSDF2356523FWDF4",
+                "RR3R6",
+                "FAS3FSDFSDF",
+                "R34F6",
+                "12345"
+            };
+            var B = A.Where(x => x.Length >= K).SelectMany(x => x).Reverse();
+            OutputChar(B);
+        }
+        static void Problem41()
+        {
+            Console.WriteLine("Problem41");
+            var K = 5;
+            List<string> A = new List<string>()
+            {
+                "S.FA",
+                "FGN.F.FDS.N.A",
+                "A.SFA",
+                "WE.F.R",
+                "S.DFF.FD.F",
+                "D.F.F",
+                "F.SDFSF",
+                "D.FF",
+                "F.SDF.SDF",
+                "FAADF.VAAAA.A",
+                "S.DFSDF.FWDF",
+                "RRD.RSDF",
+                "FA.S3F.SDS.DF",
+                "R.F",
+            };
+            var B = A.SelectMany(x => x.Split('.')).Where(x => x.Length == K).OrderBy(x => x);
+            OutputString(B);
+        }
+
 
 
 
@@ -589,6 +954,14 @@ namespace LinqProblems
             Console.WriteLine();
         }
         static void OutputString(IEnumerable<string> data)
+        {
+            foreach (var oneData in data)
+            {
+                Console.Write($"{oneData}, ");
+            }
+            Console.WriteLine();
+        }
+        static void OutputChar(IEnumerable<char> data)
         {
             foreach (var oneData in data)
             {
