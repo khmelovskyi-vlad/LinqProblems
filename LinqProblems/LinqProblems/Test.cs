@@ -56,6 +56,25 @@ namespace LinqProblems
             Problem39();
             Problem40();
             Problem41();
+            Problem42();
+            Problem43();
+            Problem44();
+            Problem45();
+            Problem46();
+            Problem47();
+            Problem48();
+            Problem49();
+            Problem50();
+            Problem51();
+            Problem52();
+            Problem53();
+            Problem54();
+            Problem55();
+            Problem56();
+            Problem57();
+            Problem58();
+            Problem59();
+            Problem60();
         }
         static void Problem1()
         {
@@ -938,6 +957,325 @@ namespace LinqProblems
             };
             var B = A.SelectMany(x => x.Split('.')).Where(x => x.Length == K).OrderBy(x => x);
             OutputString(B);
+        }
+        static void Problem42()
+        {
+            Console.WriteLine("Problem42");
+            List<string> A = new List<string>()
+            {
+                "SFfdfe3Aef",
+                "FGwefNFqwef5f6N",
+                "ASqwefF3qefA",
+                "WEqwefF2qefR",
+            };
+            var i = 1;
+            var B = A.SelectMany(x => i++ % 2 != 0 ? x.Where(y => y >= 'A' && y <= 'Z') : x.Where(y => y >= 'a' && y <= 'z'));
+            OutputChar(B);
+        }
+        static void Problem43()
+        {
+            Console.WriteLine("Problem43");
+            var K = 1;
+            List<string> A = new List<string>()
+            {
+                "SF3A",
+                "FGNFG56NA",
+                "ASF3A",
+                "WEF2R",
+                "SDF45FFD5F2",
+                "D3FF",
+                "FS2546DF56SF",
+                "D3FF4",
+                "FSD54F8SDF",
+                "FAA6AAAAA",
+                "SDFSDF2356523FWDF4",
+                "RR3R6",
+                "FAS3FSDFSDF",
+                "R34F6",
+                "12345"
+            };
+            var j = 1;
+            var i = 0;
+            var B = A.SelectMany(x => { if (j <= K) { i = 0; j++; return x.Select(y => { if (i++ % 2 != 0) return default; else return y; }); }
+                else { i = 0; j++; return x.Select(y => { if (i++ % 2 == 0) return default; else return y; }); }
+            }).Where(x => x != default).Reverse();
+            OutputChar(B);
+        }
+        static void Problem44()
+        {
+            Console.WriteLine("Problem44");
+            var K1 = 5;
+            var K2 = 7;
+            List<int> A = new List<int>()
+            {
+                -59,
+                32,
+                37,
+                -127,
+                32,
+            };
+            List<int> B = new List<int>()
+            {
+                -127,
+                37,
+                -59,
+                37,
+            };
+            var C = A.Where(x => x > K1).Concat(B.Where(x => x < K2)).OrderBy(x => x);
+            OutputInt(C);
+        }
+        static void Problem45()
+        {
+            Console.WriteLine("Problem45");
+            var L1 = 5;
+            var L2 = 7;
+            List<string> A = new List<string>()
+            {
+                "RR3R6",
+                "FAS3FSDFSDF",
+                "R34F6",
+                "12345"
+            };
+            List<string> B = new List<string>()
+            {
+                "SF3A",
+                "FGNFG56NA",
+                "ASF3A",
+                "WEF2R2F",
+            };
+            var C = A.Where(x => x.Length == L1).Concat(B.Where(x => x.Length == L2)).OrderByDescending(x => x);
+            OutputString(C);
+        }
+        static void Problem46()
+        {
+            Console.WriteLine("Problem46");
+            List<int> A = new List<int>()
+            {
+                169,
+                77,
+                17,
+                32,
+            };
+            List<int> B = new List<int>()
+            {
+                127,
+                87,
+                19,
+            };
+            var C = A.Join(B,
+                x => x.ToString()[x.ToString().Length - 1],
+                y => y.ToString()[y.ToString().Length - 1],
+                (x, y) => $"{x}-{y}");
+            OutputString(C);
+        }
+        static void Problem47()
+        {
+            Console.WriteLine("Problem47");
+            List<int> A = new List<int>()
+            {
+                869,
+                77,
+                87,
+                32,
+            };
+            List<int> B = new List<int>()
+            {
+                737,
+                91,
+                727,
+            };
+            var b = B.OrderBy(x => x);
+            var C = A.Join(b,
+                x => x.ToString()[x.ToString().Length - 1],
+                y => y.ToString()[0],
+                (x, y) => $"{x}:{y}");
+            OutputString(C);
+        }
+        static void Problem48()
+        {
+            Console.WriteLine("Problem48");
+            List<string> A = new List<string>()
+            {
+                "RR3R6",
+                "FAS3FSDFSDF",
+                "R34F6",
+                "12345"
+            };
+            List<string> B = new List<string>()
+            {
+                "FGNFG56NA6",
+                "WEF2R2F2",
+                "SF3A",
+                "FK5M0",
+                "ASF3A",
+            };
+            var a = A.OrderBy(x => x);
+            var b = B.OrderByDescending(x => x);
+            var C = a.Join(b,
+                x => x.Length,
+                y => y.Length,
+                (x, y) => $"{x}:{y}");
+            OutputString(C);
+        }
+        static void Problem49()
+        {
+            Console.WriteLine("Problem49");
+            List<string> A = new List<string>()
+            {
+                "RR3R6",
+                "FAS3FSDFSDF",
+                "R34F6",
+                "12345"
+            };
+            List<string> B = new List<string>()
+            {
+                "FGNFG56NA6",
+                "1WEF2R2F2",
+                "SF3A",
+                "1FK5M0",
+                "ASF3A",
+            };
+            List<string> C = new List<string>()
+            {
+                "YTF43FF",
+                "HY87HUNFDF",
+                "13434FDF3",
+                "1DSD3",
+                "43FWEF43F",
+            };
+            var b = B.OrderBy(x => x);
+            var c = C.OrderByDescending(x => x);
+            var V = A.Join(b,
+                x => x[0],
+                y => y[0],
+                (x, y) => $"{x}={y}")
+                .Join(c,
+                x => x[0],
+                y => y[0],
+                (x, y) => $"{x}={y}");
+            OutputString(V);
+        }
+        static void Problem50()
+        {
+            Console.WriteLine("Problem50");
+            List<string> A = new List<string>()
+            {
+                "RR3R6",
+                "FAS3FSDFSDF",
+                "1R34F6",
+                "T2345"
+            };
+            List<string> B = new List<string>()
+            {
+                "FGNFG56NA6",
+                "1WEF2R2F2",
+                "SF3A",
+                "1FK5M0",
+                "ASF3A",
+            };
+            var C = A.GroupJoin(B,
+                x => x[0],
+                y => y[0],
+                (x, y) => $"{x}:{y.Count()}");
+            OutputString(C);
+        }
+        static void Problem51()
+        {
+            Console.WriteLine("Problem51");
+            List<int> A = new List<int>()
+            {
+                869,
+                77,
+                87,
+                32,
+            };
+            List<int> B = new List<int>()
+            {
+                737,
+                12,
+                727,
+                12,
+                52,
+            };
+            var C = A.GroupJoin(B,
+                x => x.ToString().Last(),
+                y => y.ToString().Last(),
+                (x, y) => $"{y.Sum()}:{x}")
+                .OrderBy(x => Convert.ToInt32(x.Split(':')[0]))
+                .ThenByDescending(x => Convert.ToInt32(x.Split(':')[1]));
+            OutputString(C);
+        }
+        static void Problem52()
+        {
+            Console.WriteLine("Problem52");
+            List<string> A = new List<string>()
+            {
+                "RR3R6",
+                "FAS3FSDFSDF",
+                "R34F6",
+                "12345"
+            };
+            List<string> B = new List<string>()
+            {
+                "FGNFG56NA6",
+                "WEF2R2F2",
+                "SF3A",
+                "ASF3A",
+            };
+            var a = A.Where(x => x.Last() >= '0' && x.Last() <= '9').OrderBy(x => x);
+            var b = B.Where(x => x.Last() >= '0' && x.Last() <= '9').OrderByDescending(x => x);
+            var C = a.SelectMany(x => b.Select(y => $"{x}={y}"));
+            OutputString(C);
+        }
+        static void Problem53()
+        {
+            Console.WriteLine("Problem53");
+            List<int> A = new List<int>()
+            {
+                869,
+                77,
+                87,
+                32,
+            };
+            List<int> B = new List<int>()
+            {
+                737,
+                12,
+                727,
+                12,
+                52,
+            };
+            var C = A.SelectMany(x => B.Select(y => x + y))
+                .OrderBy(x => x);
+            OutputInt(C);
+        }
+        static void Problem54()
+        {
+            Console.WriteLine("Problem54");
+        }
+        static void Problem55()
+        {
+            Console.WriteLine("Problem55");
+        }
+        static void Problem56()
+        {
+            Console.WriteLine("Problem56");
+        }
+        static void Problem57()
+        {
+            Console.WriteLine("Problem57");
+        }
+        static void Problem58()
+        {
+            Console.WriteLine("Problem58");
+        }
+        static void Problem59()
+        {
+            Console.WriteLine("Problem59");
+        }
+        static void Problem60()
+        {
+            Console.WriteLine("Problem60");
         }
 
 
