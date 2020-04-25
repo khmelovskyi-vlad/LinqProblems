@@ -1252,18 +1252,100 @@ namespace LinqProblems
         static void Problem54()
         {
             Console.WriteLine("Problem54");
+            List<string> A = new List<string>()
+            {
+                "RR3R6",
+                "FAS3FSDFSDF",
+                "R34F6",
+                "12345"
+            };
+            List<string> B = new List<string>()
+            {
+                "FGNFG56NA6",
+                "WEF2R2F2",
+                "SF3A",
+                "FF3F6",
+                "ASF3A",
+            };
+            var C = A.GroupJoin(B,
+                x => x[0],
+                y => y[0],
+                //(x, y) => y.Count() == 0 ? new List<string>() { $"{x}." } : y.Select(y1 => $"{x}.{y1}"))
+                (x, y) => y.DefaultIfEmpty("").Select(y1 => $"{x}.{y1}"))
+                .SelectMany(x => x)
+                .OrderBy(x => x);
+            OutputString(C);
         }
         static void Problem55()
         {
             Console.WriteLine("Problem55");
+            List<int> A = new List<int>()
+            {
+                869,
+                1,
+                77,
+                87,
+                32,
+            };
+            List<int> B = new List<int>()
+            {
+                737,
+                12,
+                727,
+                52,
+            };
+            var C = A.GroupJoin(B,
+                x => x.ToString().Last(),
+                y => y.ToString().Last(),
+                //(x, y) => y.Count() == 0 ? new List<string>() { $"{x}:0" } : y.Select(y1 => $"{x}:{y1}"))
+                (x, y) => y.DefaultIfEmpty(0).Select(y1 => $"{x}:{y1}"))
+                .SelectMany(x => x)
+                .OrderByDescending(x => Convert.ToInt32(x.Split(':')[0]))
+                .ThenBy(x => Convert.ToInt32(x.Split(':')[1]));
+            OutputString(C);
         }
         static void Problem56()
         {
             Console.WriteLine("Problem56");
+            List<int> A = new List<int>()
+            {
+                869,
+                1,
+                77,
+                87,
+                3212,
+            };
+            var C = A.GroupJoin(A,
+                x => x.ToString().Last(),
+                y => y.ToString().Last(),
+                (x, y) => $"{x.ToString().Last()}:{y.Count()}")
+                .Distinct()
+                .OrderBy(x => x[0]);
+            OutputString(C);
         }
         static void Problem57()
         {
             Console.WriteLine("Problem57");
+            List<int> A = new List<int>()
+            {
+                869,
+                19,
+                1,
+                77,
+                2345679,
+                87,
+                1239,
+                3212,
+            };
+            var C = A.GroupJoin(A,
+                x => x.ToString().Last(),
+                y => y.ToString().Last(),
+                (x, y) => y.Count() == 1 ? " " : y.Max().ToString())
+                .Where(x => x != " ")
+                .Select(x => Convert.ToInt32(x))
+                .Distinct()
+                .OrderBy(x => x.ToString().Last());
+            OutputInt(C);
         }
         static void Problem58()
         {
