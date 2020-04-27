@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LinqProblems
 {
-    class Test
+    class LinqBegin
     {
-        public Test()
+        public LinqBegin()
         {
 
         }
@@ -1315,12 +1315,13 @@ namespace LinqProblems
                 87,
                 3212,
             };
-            var C = A.GroupJoin(A,
-                x => x.ToString().Last(),
-                y => y.ToString().Last(),
-                (x, y) => $"{x.ToString().Last()}:{y.Count()}")
-                .Distinct()
-                .OrderBy(x => x[0]);
+            var C = A.GroupBy(x => x.ToString().Last()).Select(x => $"{x.Key}:{x.Count()}").OrderBy(x => x[0]);
+            //var C = A.GroupJoin(A,
+            //    x => x.ToString().Last(),
+            //    y => y.ToString().Last(),
+            //    (x, y) => $"{x.ToString().Last()}:{y.Count()}")
+            //    .Distinct()
+            //    .OrderBy(x => x[0]);
             OutputString(C);
         }
         static void Problem57()
@@ -1337,27 +1338,87 @@ namespace LinqProblems
                 1239,
                 3212,
             };
-            var C = A.GroupJoin(A,
-                x => x.ToString().Last(),
-                y => y.ToString().Last(),
-                (x, y) => y.Count() == 1 ? " " : y.Max().ToString())
-                .Where(x => x != " ")
-                .Select(x => Convert.ToInt32(x))
-                .Distinct()
-                .OrderBy(x => x.ToString().Last());
+            var C = A.GroupBy(x => x.ToString().Last()).Select(x => x.Max()).OrderBy(x => x.ToString().Last());
+            //var C = A.GroupJoin(A,
+            //    x => x.ToString().Last(),
+            //    y => y.ToString().Last(),
+            //    (x, y) => y.Count() == 1 ? " " : y.Max().ToString())
+            //    .Where(x => x != " ")
+            //    .Select(x => Convert.ToInt32(x))
+            //    .Distinct()
+            //    .OrderBy(x => x.ToString().Last());
             OutputInt(C);
         }
         static void Problem58()
         {
             Console.WriteLine("Problem58");
+            List<string> A = new List<string>()
+            {
+                "RR3R6",
+                "R34F6",
+                "R1111",
+                "FAS3FSDFSDF",
+                "FGNFG56NA6",
+                "WEF2R2F2",
+                "SF3A",
+                "FF3F6",
+                "ASF3A",
+                "12345"
+            };
+            var C = A.GroupBy(x => x[0]).Select(x => x.OrderByDescending(x1 => x1.Length).First()).OrderBy(x => x.ToString().Last());
+            OutputString(C);
         }
         static void Problem59()
         {
             Console.WriteLine("Problem59");
+            List<string> A = new List<string>()
+            {
+                "RRR",
+                "RBT",
+                "RFBT",
+                "FASFSDFSDF",
+                "FGNFGNA",
+                "WEFRF",
+                "SFA",
+                "FJHFGHJF",
+                "ASFA",
+            };
+            var C = A.GroupBy(x => x.Length).Select(x => x.OrderBy(x1 => x1).First()).OrderByDescending(x => x.Length);
+            OutputString(C);
         }
         static void Problem60()
         {
             Console.WriteLine("Problem60");
+            List<string> A = new List<string>()
+            {
+                "RRR",
+                "RBT",
+                "RFBT",
+                "FASFSDFSDF",
+                "FGNFGNA",
+                "WEFRF",
+                "SFA",
+                "FJHFGHJF",
+                "ASFA",
+            };
+            //var C = A.GroupBy(x => x[0], y => y.Length)
+            //    .OrderByDescending(x => x.Sum())
+            //    .ThenBy(x => x.Key)
+            //    .Select(x => $"{x.Sum()}-{x.Key}");
+
+            //var C = A.GroupBy(x => x[0], e => e.Length, (k, g)=> $"{g.Sum()}-{k}")
+            //    .OrderByDescending(x => Convert.ToInt32(x.Split('-')[0]))
+            //    .ThenBy(x => x.Split('-')[1]);
+
+            var C = A.GroupBy(x => x[0], e => e.Length, (k, g) => new { k, s = g.Sum()})
+                .OrderByDescending(x => x.s)
+                .ThenBy(x => x.k)
+                .Select(x => $"{x.s}-{x.k}");
+
+            //var C = A.GroupBy(x => x[0]).Select(x => $"{x.Select(x1 => x1.Length).Sum()}-{x.Key}")
+            //    .OrderByDescending(x => Convert.ToInt32(x.Split('-')[0]))
+            //    .ThenBy(x => x.Split('-')[1]);
+            OutputString(C);
         }
 
 

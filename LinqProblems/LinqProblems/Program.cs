@@ -10,8 +10,10 @@ namespace LinqProblems
     {
         static void Main(string[] args)
         {
-            Test test = new Test();
-            test.Run();
+            //LinqBegin linqBegin = new LinqBegin();
+            //linqBegin.Run();
+            LinqObj linqObj = new LinqObj();
+            linqObj.Run();
             Console.ReadKey();
             Console.WriteLine("num1");
             var (num1LinqBegin1, num2LinqBegin1) = LinqBegin1();
