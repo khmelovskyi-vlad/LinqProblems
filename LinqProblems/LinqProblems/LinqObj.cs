@@ -57,10 +57,14 @@ namespace LinqProblems
             new LinqObj1_12(5234, 2007, 4, 27),
             new LinqObj1_12(5234, 2007, 5, 23),
             new LinqObj1_12(5234, 2007, 6, 29),
-            new LinqObj1_12(2349, 2006, 6, 30),
-            new LinqObj1_12(2349, 2006, 9, 26),
             new LinqObj1_12(2349, 2006, 6, 28),
+            new LinqObj1_12(2349, 2006, 8, 30),
+            new LinqObj1_12(2349, 2006, 9, 30),
             new LinqObj1_12(2349, 2007, 3, 23),
+            new LinqObj1_12(2349, 2018, 2, 14),
+            new LinqObj1_12(2349, 2018, 5, 0),
+            new LinqObj1_12(2349, 2019, 3, 28),
+            new LinqObj1_12(2349, 2019, 6, 28),
             new LinqObj1_12(7543, 2005, 12, 15),
             new LinqObj1_12(7543, 2006, 10, 185),
             new LinqObj1_12(7543, 2006, 11, 19),
@@ -137,14 +141,87 @@ namespace LinqProblems
         private void LinqObj7()
         {
             Console.WriteLine("LinqObj7");
+            var K = 2349;
+            var results = linqObj1_12.Where(x => x.ClientCode == K)
+                .GroupBy(e => e.Year,
+                (k, g) => new { k, group = g.OrderBy(x => x.ClassDuration).ThenByDescending(x => x.MonthNum)})
+                .Select(x => x.group.Last())
+                .OrderByDescending(x => x.Year);
+            if (results.Count() == 0)
+            {
+                Console.WriteLine("No data");
+            }
+            else
+            {
+                foreach (var result in results)
+                {
+                    Console.WriteLine($"{result.Year} {result.MonthNum} {result.ClassDuration}");
+                }
+            }
         }
         private void LinqObj8()
         {
             Console.WriteLine("LinqObj8");
+            var K = 2349;
+            var results = linqObj1_12.Where(x => x.ClientCode == K && x.MonthNum != 0)
+                .GroupBy(e => e.Year,
+                (k, g) => new { k, group = g.OrderBy(x => x.ClassDuration) })
+                .Select(x => x.group.First())
+                .OrderBy(x => x.ClassDuration)
+                .ThenBy(x => x.Year);
+            if (results.Count() == 0)
+            {
+                Console.WriteLine("No data");
+            }
+            else
+            {
+                foreach (var result in results)
+                {
+                    Console.WriteLine($"{result.ClassDuration} {result.Year} {result.MonthNum}");
+                }
+            }
         }
         private void LinqObj9()
         {
             Console.WriteLine("LinqObj9");
+            var K = 2349;
+            var allYears = linqObj1_12.Where(x => x.ClientCode == K).Select(x => x.Year);
+            var results = allYears
+                .GroupJoin(linqObj1_12.Where(x => x.ClientCode == K && x.ClassDuration > 15),
+                x => x,
+                y => y.Year,
+                (x, y) => new { year = x, count = y.Count() })
+                .Distinct()
+                .OrderByDescending(x => x.count)
+                .ThenBy(x => x.year);
+            if (results.Count() == 0)
+            {
+                Console.WriteLine("No data");
+            }
+            else
+            {
+                foreach (var result in results)
+                {
+                    Console.WriteLine($"{result.count} {result.year}");
+                }
+            }
+            Console.WriteLine("result 2");
+            var results2 = linqObj1_12.Where(x => x.ClientCode == K)
+                .GroupBy(e => e.Year,
+                (k, g) => new { year = k, count = g.Count(x => x.ClassDuration > 15) })
+                .OrderByDescending(x => x.count)
+                .ThenBy(x => x.year);
+            if (results.Count() == 0)
+            {
+                Console.WriteLine("No data");
+            }
+            else
+            {
+                foreach (var result in results2)
+                {
+                    Console.WriteLine($"{result.count} {result.year}");
+                }
+            }
         }
         private void LinqObj10()
         {
