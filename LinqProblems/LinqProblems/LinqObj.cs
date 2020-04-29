@@ -22,6 +22,18 @@ namespace LinqProblems
             LinqObj10();
             LinqObj11();
             LinqObj12();
+            LinqObj13();
+            LinqObj14();
+            LinqObj15();
+            LinqObj16();
+            LinqObj17();
+            LinqObj18();
+            LinqObj19();
+            LinqObj20();
+            LinqObj21();
+            LinqObj22();
+            LinqObj23();
+            LinqObj24();
         }
         class LinqObj1_12
         {
@@ -61,7 +73,7 @@ namespace LinqProblems
             new LinqObj1_12(2349, 2006, 8, 30),
             new LinqObj1_12(2349, 2006, 9, 30),
             new LinqObj1_12(2349, 2007, 3, 23),
-            new LinqObj1_12(2349, 2018, 2, 14),
+            new LinqObj1_12(2349, 2018, 2, 100),
             new LinqObj1_12(2349, 2018, 5, 0),
             new LinqObj1_12(2349, 2019, 3, 28),
             new LinqObj1_12(2349, 2019, 6, 28),
@@ -70,6 +82,42 @@ namespace LinqProblems
             new LinqObj1_12(7543, 2006, 11, 19),
             new LinqObj1_12(7543, 2007, 10, 26),
             new LinqObj1_12(7543, 2007, 12, 24),
+        };
+        class LinqObj13_24
+        {
+            public LinqObj13_24(int IntroductionYear, int SchoolNum, string Surname)
+            {
+                this.IntroductionYear = IntroductionYear;
+                this.SchoolNum = SchoolNum;
+                this.Surname = Surname;
+            }
+            public int IntroductionYear { get; set; }
+            public int SchoolNum { get; set; }
+            public string Surname { get; set; }
+        }
+        private List<LinqObj13_24> linqObj13_24 = new List<LinqObj13_24>
+        {
+            new LinqObj13_24(2003, 1234, "Qweasd"),
+            new LinqObj13_24(2003, 1234, "Wqeqwd"),
+            new LinqObj13_24(2003, 1234, "Qacsc"),
+            new LinqObj13_24(2003, 4123, "Ggdfdfbdfb"),
+            new LinqObj13_24(2003, 1415, "Yhfgbnfgb"),
+            new LinqObj13_24(2004, 1865, "Cdfbdfr"),
+            new LinqObj13_24(2004, 6456, "Lkvjdfvnjn"),
+            new LinqObj13_24(2004, 6544, "Prnbfbdv"),
+            new LinqObj13_24(2004, 3753, "Mfdbewfewc"),
+            new LinqObj13_24(2006, 6456, "Lsdfwecwv"),
+            new LinqObj13_24(2006, 7564, "Tdfvdfvsd"),
+            new LinqObj13_24(2006, 4356, "Psdvevfvgfb"),
+            new LinqObj13_24(2006, 7254, "Isdverwq"),
+            new LinqObj13_24(2006, 6427, "Bsfe"),
+            new LinqObj13_24(2007, 7824, "Ksdvtner"),
+            new LinqObj13_24(2007, 7256, "Xsvwsevewv"),
+            new LinqObj13_24(2007, 3168, "Lsvwev"),
+            new LinqObj13_24(2008, 6245, "Qvdbrebr"),
+            new LinqObj13_24(2008, 9145, "Lvbedbwq"),
+            new LinqObj13_24(2008, 2658, "Qsdvesv"),
+            new LinqObj13_24(2008, 1243, "Lsbklwebvjbhj"),
         };
         private void LinqObj1()
         {
@@ -211,7 +259,7 @@ namespace LinqProblems
                 (k, g) => new { year = k, count = g.Count(x => x.ClassDuration > 15) })
                 .OrderByDescending(x => x.count)
                 .ThenBy(x => x.year);
-            if (results.Count() == 0)
+            if (results2.Count() == 0)
             {
                 Console.WriteLine("No data");
             }
@@ -226,14 +274,124 @@ namespace LinqProblems
         private void LinqObj10()
         {
             Console.WriteLine("LinqObj10");
+            Console.WriteLine(linqObj1_12.Count());
+            var results = linqObj1_12
+                .Select(x => new { x.ClientCode, couple = $"{x.Year}-{x.MonthNum}" })
+                .GroupBy(e => e.couple,
+                (k, g) => new { couple = k, count = g.Count() })
+                .OrderByDescending(x => Convert.ToInt32(x.couple.Split('-')[0]))
+                .ThenBy(x => Convert.ToInt32(x.couple.Split('-')[1]));
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.couple} {result.count}");
+            }
         }
         private void LinqObj11()
         {
             Console.WriteLine("LinqObj11");
+            Console.WriteLine(linqObj1_12.Count());
+            var results = linqObj1_12
+                .Select(x => new { x.ClassDuration, couple = $"{x.Year}-{x.MonthNum}" })
+                .GroupBy(e => e.couple,
+                (k, g) => new { couple = k, sum = g.Sum(x => x.ClassDuration) })
+                .OrderBy(x => x.sum)
+                .ThenByDescending(x => Convert.ToInt32(x.couple.Split('-')[0]))
+                .ThenBy(x => Convert.ToInt32(x.couple.Split('-')[1]));
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.sum} {result.couple}");
+            }
         }
         private void LinqObj12()
         {
             Console.WriteLine("LinqObj12");
+            var P = 17;
+            var results = linqObj1_12.GroupBy(e => e.Year,
+                (k, g) => new { k, count = g.Count(x => x.ClassDuration > P*g.Sum(y => y.ClassDuration)/100) })
+                .OrderByDescending(x => x.count)
+                .ThenBy(x => x.k);
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.count} {result.k}");
+            }
+        }
+        private void LinqObj13()
+        {
+            Console.WriteLine("LinqObj13");
+            var results = linqObj13_24.GroupBy(e => e.IntroductionYear,
+                (k, g) => new { k, max = g.Max(x => x.SchoolNum) })
+                .OrderBy(x => x.max);
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.k} {result.max}");
+            }
+        }
+        private void LinqObj14()
+        {
+            Console.WriteLine("LinqObj14");
+            var results = linqObj13_24.GroupBy(e => e.IntroductionYear,
+                (k, g) => new { k, count = g.Count() });
+            var max = results.Max(x => x.count);
+            var yearsCount = results.Count(x => x.count == max);
+            Console.WriteLine(max);
+            Console.WriteLine(yearsCount);
+        }
+        private void LinqObj15()
+        {
+            Console.WriteLine("LinqObj15");
+            var results = linqObj13_24.GroupBy(e => e.IntroductionYear,
+                (k, g) => new { k, count = g.Count() });
+            var max = results.Max(x => x.count);
+            var years = results.Where(x => x.count == max);
+            Console.WriteLine(max);
+            foreach (var year in years)
+            {
+                Console.WriteLine($"{year.k}");
+            }
+        }
+        private void LinqObj16()
+        {
+            Console.WriteLine("LinqObj16");
+            var results = linqObj13_24.GroupBy(e => e.IntroductionYear,
+                (k, g) => new { k, count = g.Count() })
+                .OrderByDescending(x => x.count)
+                .ThenBy(x => x.k);
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.count} {result.k}");
+            }
+        }
+        private void LinqObj17()
+        {
+            Console.WriteLine("LinqObj17");
+        }
+        private void LinqObj18()
+        {
+            Console.WriteLine("LinqObj18");
+        }
+        private void LinqObj19()
+        {
+            Console.WriteLine("LinqObj19");
+        }
+        private void LinqObj20()
+        {
+            Console.WriteLine("LinqObj20");
+        }
+        private void LinqObj21()
+        {
+            Console.WriteLine("LinqObj21");
+        }
+        private void LinqObj22()
+        {
+            Console.WriteLine("LinqObj22");
+        }
+        private void LinqObj23()
+        {
+            Console.WriteLine("LinqObj23");
+        }
+        private void LinqObj24()
+        {
+            Console.WriteLine("LinqObj24");
         }
     }
 }
