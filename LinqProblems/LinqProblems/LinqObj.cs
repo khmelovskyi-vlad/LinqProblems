@@ -34,6 +34,18 @@ namespace LinqProblems
             LinqObj22();
             LinqObj23();
             LinqObj24();
+            LinqObj25();
+            LinqObj26();
+            LinqObj27();
+            LinqObj28();
+            LinqObj29();
+            LinqObj30();
+            LinqObj31();
+            LinqObj32();
+            LinqObj33();
+            LinqObj34();
+            LinqObj35();
+            LinqObj36();
         }
         class LinqObj1_12
         {
@@ -121,6 +133,167 @@ namespace LinqProblems
             new LinqObj13_24(2018, 4123, "Dsvdsv"),
             new LinqObj13_24(2019, 4123, "Vdfgber"),
         };
+        class LinqObj25_36
+        {
+            public LinqObj25_36(string Surname, double Debt, int FlatNum)
+            {
+                this.FlatNum = FlatNum;
+                this.Debt = Debt;
+                this.Surname = Surname;
+            }
+            public string Surname { get; set; }
+            public double Debt { get; set; }
+            public int FlatNum { get; set; }
+        }
+        private List<LinqObj25_36> linqObj25_36 = new List<LinqObj25_36>
+        {
+            new LinqObj25_36("Qweasd2003", 123.34, 1),
+            new LinqObj25_36("Vdfvdfvr", 7657.57, 2),
+            new LinqObj25_36("Vsvevdv", 5668.45, 3),
+            new LinqObj25_36("Vsdlkfn", 7654.12, 4),
+            new LinqObj25_36("Jksdvksdv", 7511.56, 5),
+            new LinqObj25_36("Lsdvlsdknvkd", 4784.30, 6),
+            new LinqObj25_36("Bfdbfwlfnek", 751324.25, 7),
+            new LinqObj25_36("Lsdfnwlfnek", 7231.36, 8),
+            new LinqObj25_36("Nrlbnf", 873218.51, 9),
+            new LinqObj25_36("Fdnyntn", 5467.58, 10),
+            new LinqObj25_36("Rdbdfdfb", 0, 11),
+            new LinqObj25_36("Bdberbfb", 567, 12),
+            new LinqObj25_36("Fvsv", 564.13, 13),
+            new LinqObj25_36("Ebdb", 78.64, 14),
+            new LinqObj25_36("Mgwgf", 0, 15),
+            new LinqObj25_36("Eebfdb", 875.15, 16),
+            new LinqObj25_36("Jnntntn", 32135.78, 17),
+            new LinqObj25_36("Cdscssdvsdv", 0, 18),
+            new LinqObj25_36("Ftbrb", 7158.32, 19),
+            new LinqObj25_36("Vbbfdb", 75115.35, 20),
+            new LinqObj25_36("Vsdfveb", 78.58, 21),
+            new LinqObj25_36("Rbbfgb", 234324.4, 22),
+            new LinqObj25_36("Bgfbgt", 344.38, 23),
+            new LinqObj25_36("Frebg", 0, 24),
+            new LinqObj25_36("Igdrberb", 5675.46, 25),
+            new LinqObj25_36("Ebfbt", 2575.34, 26),
+            new LinqObj25_36("Vgh", 54234.84, 27),
+            new LinqObj25_36("Btrym", 14.43, 28),
+            new LinqObj25_36("Vdnytn", 0, 29),
+            new LinqObj25_36("Ddfbtrh", 54.93, 30),
+            new LinqObj25_36("Nnfnrg", 346.84, 31),
+            new LinqObj25_36("Fisdnfm", 241.255, 32),
+            new LinqObj25_36("Rbrtb", 4234.23, 33),
+            new LinqObj25_36("Drbrbwef", 42346.42, 34),
+            new LinqObj25_36("Fdfbtrb", 7453.45, 35),
+            new LinqObj25_36("Rbeberb", 0, 36),
+            new LinqObj25_36("Vdfberb", 23532.334, 37),
+            new LinqObj25_36("Ebdfbtb", 236346.23, 38),
+            new LinqObj25_36("Sfdvdrb", 4234.34, 39),
+            new LinqObj25_36("Ddbrebtrb", 0, 40),
+            new LinqObj25_36("Cdfberb", 1235.75, 41),
+            new LinqObj25_36("Dnytnerf", 46342.65, 42),
+            new LinqObj25_36("Uhegreg", 9623.12, 43),
+            new LinqObj25_36("Dsberberb", 81827.23, 44),
+            new LinqObj25_36("Csberb", 0, 45),
+            new LinqObj25_36("Dwevwev", 3213.23, 46),
+            new LinqObj25_36("Dwwefwef", 963845.12, 47),
+            new LinqObj25_36("Dwevervrb", 67432.12, 48),
+            new LinqObj25_36("Gwefewdwe", 5749.12, 49),
+            new LinqObj25_36("Xsdberb", 96534.23, 50),
+            new LinqObj25_36("Vswefewf", 653.23, 51),
+            new LinqObj25_36("Xsberbeb", 0, 52),
+            new LinqObj25_36("Fewbeb", 532.35, 53),
+            new LinqObj25_36("Ewefwbb", 97654.21, 54),
+            new LinqObj25_36("Fbeber", 6424234.83, 55),
+            new LinqObj25_36("Dewberb", 214234.75, 56),
+            new LinqObj25_36("Esvbrb", 0, 57),
+            new LinqObj25_36("Dsbbrtb", 4235.23, 58),
+            new LinqObj25_36("Csberbrb", 424.12, 59),
+            new LinqObj25_36("Edfvdfbdf", 64545.23, 60),
+            new LinqObj25_36("Dsdberb", 0, 61),
+            new LinqObj25_36("Dsdverbreb", 8459.47, 62),
+            new LinqObj25_36("Csdberb", 96485.23, 63),
+            new LinqObj25_36("Deberb", 45823.65, 64),
+            new LinqObj25_36("Wvervev", 92485.75, 65),
+            new LinqObj25_36("Hbdfbdfb", 0, 66),
+            new LinqObj25_36("Cdsvvv", 234.35, 67),
+            new LinqObj25_36("Dsvebb", 4125.62, 68),
+            new LinqObj25_36("Vdverb", 692834.32, 69),
+            new LinqObj25_36("Grntyn", 64385.24, 70),
+            new LinqObj25_36("Dbrtnrtn", 54723.23, 71),
+            new LinqObj25_36("Dsdverbrb", 94582.75, 72),
+            new LinqObj25_36("Vgnrtn", 5857363.34, 73),
+            new LinqObj25_36("Mbrtbtrb", 0, 74),
+            new LinqObj25_36("Jnrynytn", 34.23, 75),
+            new LinqObj25_36("Kjnrtnnb", 9582.75, 76),
+            new LinqObj25_36("Lwevsdvsdv", 858.65, 77),
+            new LinqObj25_36("Csbebb", 5646.34, 78),
+            new LinqObj25_36("Dsdbrrtn", 58673.76, 79),
+            new LinqObj25_36("Csbeberb", 6778.64, 80),
+            new LinqObj25_36("Cdberb", 94836.43, 81),
+            new LinqObj25_36("Cdsverb", 3295.23, 82),
+            new LinqObj25_36("Cebrtb", 6934.1, 83),
+            new LinqObj25_36("Ddbdb", 234.43, 84),
+            new LinqObj25_36("Fsdbdfb", 6345.32, 85),
+            new LinqObj25_36("Jfgmfgn", 0, 86),
+            new LinqObj25_36("Ktfdbdf", 24.75, 87),
+            new LinqObj25_36("Fsdbsfgn", 6346.24, 88),
+            new LinqObj25_36("Cdfbbfb", 0, 89),
+            new LinqObj25_36("Ggewg", 21312.43, 90),
+            new LinqObj25_36("Rerherh", 23423.12, 91),
+            new LinqObj25_36("ASdsb", 6453.25, 92),
+            new LinqObj25_36("Grtrtn", 0, 93),
+            new LinqObj25_36("Vsdvfn", 234324.63, 94),
+            new LinqObj25_36("Fsdvsdv", 2341.75, 95),
+            new LinqObj25_36("Wdfbb", 58345.26, 96),
+            new LinqObj25_36("Ferbf", 9346.24, 97),
+            new LinqObj25_36("Dwef", 634.24, 98),
+            new LinqObj25_36("Vberb", 0, 99),
+            new LinqObj25_36("Wqwfsd", 6346.34, 100),
+            new LinqObj25_36("Jrsgre", 5345.85, 101),
+            new LinqObj25_36("Gsdv", 3648.23, 102),
+            new LinqObj25_36("Vdberb", 74634.86, 103),
+            new LinqObj25_36("Edgsg", 63424.34, 104),
+            new LinqObj25_36("Knrtnrt", 14457.27, 105),
+            new LinqObj25_36("Lgrgexc", 5345.86, 106),
+            new LinqObj25_36("Qsdvdsv", 7245.54, 107),
+            new LinqObj25_36("Hrtjtrj", 1345.65, 108),
+            new LinqObj25_36("Gsgewg", 5.34, 109),
+            new LinqObj25_36("Vdseve", 0, 110),
+            new LinqObj25_36("Udfhdfh", 456.24, 111),
+            new LinqObj25_36("Gdsbeb", 86345.23, 112),
+            new LinqObj25_36("Gdnrn", 3454.52, 113),
+            new LinqObj25_36("Vsdvew", 347.23, 114),
+            new LinqObj25_36("Edsvdvdvsv", 65.23, 115),
+            new LinqObj25_36("Vdsfdnrn", 7.12, 116),
+            new LinqObj25_36("Jjrtjtj", 0, 117),
+            new LinqObj25_36("Efsdfsd", 534.34, 118),
+            new LinqObj25_36("Csdvbnr", 234.42, 119),
+            new LinqObj25_36("Ssdvevv", 345.73, 120),
+            new LinqObj25_36("Gejtrj", 12312.12, 121),
+            new LinqObj25_36("Wgrerhenfg", 124.12, 122),
+            new LinqObj25_36("Fdsdfbn", 0, 123),
+            new LinqObj25_36("Fdhrtnnhn", 5325.12, 124),
+            new LinqObj25_36("Fsdfweewher", 21314.52, 125),
+            new LinqObj25_36("Dbdfbdfb", 234.12, 126),
+            new LinqObj25_36("Csdvdsverb", 5673.25, 127),
+            new LinqObj25_36("Kjethhdfg", 23423.46, 128),
+            new LinqObj25_36("Lfgnfgn", 7457.45, 129),
+            new LinqObj25_36("Phkjghj", 34547.34, 130),
+            new LinqObj25_36("Pgjmnbm", 34524.64, 131),
+            new LinqObj25_36("Ibnmhj", 4363.34, 132),
+            new LinqObj25_36("Ihjghnbm", 346.34, 133),
+            new LinqObj25_36("Kfgmghm", 3474.76, 134),
+            new LinqObj25_36("Igghmm", 345345.34, 135),
+            new LinqObj25_36("Yhjhj", 0, 136),
+            new LinqObj25_36("Hgjghm", 345.34, 137),
+            new LinqObj25_36("Ofghmghm", 75467.34, 138),
+            new LinqObj25_36("Hfhmgh", 6346.45, 139),
+            new LinqObj25_36("Ifhjmghm", 0, 140),
+            new LinqObj25_36("Gsdvsdv", 34634.35, 141),
+            new LinqObj25_36("Grehhth", 6346.35, 142),
+            new LinqObj25_36("Vdrbrb", 0, 143),
+            new LinqObj25_36("Tesdv", 34634.34, 144),
+        };
+
+
         private void LinqObj1()
         {
             Console.WriteLine("LinqObj1");
@@ -474,6 +647,60 @@ namespace LinqProblems
                     Console.WriteLine($"{result.k} {resultMin}");
                 }
             }
+        }
+        private void LinqObj25()
+        {
+            Console.WriteLine("LinqObj25");
+            var result = linqObj25_36.Select(x => new { x.Debt, x.FlatNum, x.Surname, porch = Math.Truncate((double)(x.FlatNum-1)/36 + 1)})
+                .GroupBy(x => x.porch,
+                (k, g) => new { k, allDebt = g.Sum(x => x.Debt)})
+                .OrderBy(x => x.allDebt)
+                .Last();
+            Console.WriteLine($"{result.k},{result.allDebt}");
+        }
+        private void LinqObj26()
+        {
+            Console.WriteLine("LinqObj26");
+        }
+        private void LinqObj27()
+        {
+            Console.WriteLine("LinqObj27");
+        }
+        private void LinqObj28()
+        {
+            Console.WriteLine("LinqObj28");
+        }
+        private void LinqObj29()
+        {
+            Console.WriteLine("LinqObj29");
+        }
+        private void LinqObj30()
+        {
+            Console.WriteLine("LinqObj30");
+        }
+        private void LinqObj31()
+        {
+            Console.WriteLine("LinqObj31");
+        }
+        private void LinqObj32()
+        {
+            Console.WriteLine("LinqObj32");
+        }
+        private void LinqObj33()
+        {
+            Console.WriteLine("LinqObj33");
+        }
+        private void LinqObj34()
+        {
+            Console.WriteLine("LinqObj34");
+        }
+        private void LinqObj35()
+        {
+            Console.WriteLine("LinqObj35");
+        }
+        private void LinqObj36()
+        {
+            Console.WriteLine("LinqObj36");
         }
     }
 }

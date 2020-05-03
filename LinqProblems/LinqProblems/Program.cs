@@ -10,6 +10,8 @@ namespace LinqProblems
     {
         static void Main(string[] args)
         {
+            //Toilet toilet = new Toilet();
+            //toilet.Run();
             //LinqBegin linqBegin = new LinqBegin();
             //linqBegin.Run();
             LinqObj linqObj = new LinqObj();
