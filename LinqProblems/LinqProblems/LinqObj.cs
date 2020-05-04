@@ -661,38 +661,121 @@ namespace LinqProblems
         private void LinqObj26()
         {
             Console.WriteLine("LinqObj26");
+            var results = linqObj25_36.Select(x => new { x.Debt, x.FlatNum, x.Surname, porch = Math.Truncate((double)(x.FlatNum - 1) / 36 + 1) })
+                .Where(x => x.Debt != 0)
+                .GroupBy(x => x.porch,
+                (k, g) => new { k, count = g.Count(), srZn = g.Sum(x => x.Debt)/g.Count() })
+                .OrderBy(x => x.k);
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.k},{result.count},{result.srZn}");
+            }
         }
         private void LinqObj27()
         {
             Console.WriteLine("LinqObj27");
+            var results = linqObj25_36.Select(x => new { x.Debt, x.FlatNum, x.Surname, Floor = Math.Truncate((double)(x.FlatNum - 1) / 16 + 1) })
+                .Where(x => x.Debt != 0)
+                .GroupBy(x => x.Floor,
+                (k, g) => new { k, count = g.Count(), srZn = g.Sum(x => x.Debt) / g.Count() })
+                .OrderBy(x => x.count)
+                .ThenBy(x => x.k);
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.k},{result.count},{result.srZn}");
+            }
         }
         private void LinqObj28()
         {
             Console.WriteLine("LinqObj28");
+            var results = linqObj25_36.Select(x => new { x.Debt, x.FlatNum, x.Surname, Floor = Math.Truncate((double)(x.FlatNum - 1) / 16 + 1) })
+                .Where(x => x.Debt != 0)
+                .GroupBy(x => x.Floor,
+                (k, g) => new { k, count = g.Count(), srZn = g.Sum(x => x.Debt) / g.Count() })
+                .OrderByDescending(x => x.k);
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.k},{result.count},{result.srZn}");
+            }
         }
         private void LinqObj29()
         {
             Console.WriteLine("LinqObj29");
+            var results = linqObj25_36.Select(x => new { x.Debt, x.FlatNum, x.Surname, porch = Math.Truncate((double)(x.FlatNum - 1) / 36 + 1) })
+                .Where(x => x.Debt != 0)
+                .GroupBy(x => x.porch,
+                (k, g) => new { inf = g.OrderBy(x => x.Debt).Last()})
+                .OrderBy(x => x.inf.porch);
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.inf.porch},{result.inf.FlatNum},{result.inf.Surname},{result.inf.Debt}");
+            }
         }
         private void LinqObj30()
         {
             Console.WriteLine("LinqObj30");
+            var results = linqObj25_36.Select(x => new { x.Debt, x.FlatNum, x.Surname, Floor = Math.Truncate((double)(x.FlatNum - 1) / 16 + 1) })
+                .Where(x => x.Debt != 0)
+                .GroupBy(x => x.Floor,
+                (k, g) => new { inf = g.OrderByDescending(x => x.Debt).Last() })
+                .OrderBy(x => x.inf.Floor);
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.inf.FlatNum},{result.inf.Floor},{result.inf.Surname},{result.inf.Debt}");
+            }
         }
         private void LinqObj31()
         {
             Console.WriteLine("LinqObj31");
+            var results = linqObj25_36.Select(x => new { x.Debt, x.FlatNum, x.Surname, porch = Math.Truncate((double)(x.FlatNum - 1) / 36 + 1) })
+                .Where(x => x.Debt != 0)
+                .GroupBy(x => x.porch,
+                (k, g) => new { inf = g.OrderByDescending(x => x.Debt).Take(3) })
+                .SelectMany(x => x.inf)
+                .OrderBy(x => x.Debt);
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.Debt},{result.porch},{result.FlatNum},{result.Surname}");
+            }
         }
         private void LinqObj32()
         {
             Console.WriteLine("LinqObj32");
+            var results = linqObj25_36.Select(x => new { x.Debt, x.FlatNum, x.Surname, Floor = Math.Truncate((double)(x.FlatNum - 1) / 16 + 1) })
+                .GroupBy(x => x.Floor,
+                (k, g) => new { inf = g.Where(x => x.Debt != 0).Count() == 0 ? g.First() : g.Where(x => x.Debt != 0).OrderByDescending(x => x.Debt).Last() })
+                .Select(x => x.inf)
+                .OrderBy(x => x.Floor);
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.Floor},{result.Debt}");
+            }
         }
         private void LinqObj33()
         {
             Console.WriteLine("LinqObj33");
+            var average = linqObj25_36.Where(y => y.Debt != 0).Average(y => y.Debt);
+            var results = linqObj25_36.Where(x => x.Debt != 0)
+                .Where(x => x.Debt >= average)
+                .OrderBy(x => x.FlatNum);
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.FlatNum},{result.Surname},{result.Debt}");
+            }
         }
         private void LinqObj34()
         {
             Console.WriteLine("LinqObj34");
+            var average = linqObj25_36.Where(y => y.Debt != 0).Average(y => y.Debt);
+            var results = linqObj25_36.Select(x => new { x.Debt, x.FlatNum, x.Surname, Floor = Math.Truncate((double)(x.FlatNum - 1) / 16 + 1) })
+                .Where(x => x.Debt != 0)
+                .Where(x => x.Debt <= average)
+                .OrderByDescending(x => x.Floor)
+                .ThenBy(x => x.FlatNum);
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.Floor},{result.FlatNum},{result.Surname},{result.Debt}");
+            }
         }
         private void LinqObj35()
         {
