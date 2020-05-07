@@ -10,6 +10,14 @@ namespace LinqProblems
     {
         public void Run()
         {
+            met1_12();
+            met13_24();
+            met25_36();
+            met37_48();
+            met49_60();
+        }
+        private void met1_12()
+        {
             LinqObj1();
             LinqObj2();
             LinqObj3();
@@ -22,6 +30,9 @@ namespace LinqProblems
             LinqObj10();
             LinqObj11();
             LinqObj12();
+        }
+        private void met13_24()
+        {
             LinqObj13();
             LinqObj14();
             LinqObj15();
@@ -34,6 +45,9 @@ namespace LinqProblems
             LinqObj22();
             LinqObj23();
             LinqObj24();
+        }
+        private void met25_36()
+        {
             LinqObj25();
             LinqObj26();
             LinqObj27();
@@ -46,6 +60,36 @@ namespace LinqProblems
             LinqObj34();
             LinqObj35();
             LinqObj36();
+        }
+        private void met37_48()
+        {
+            LinqObj37();
+            LinqObj38();
+            LinqObj39();
+            LinqObj40();
+            LinqObj41();
+            LinqObj42();
+            LinqObj43();
+            LinqObj44();
+            LinqObj45();
+            LinqObj46();
+            LinqObj47();
+            LinqObj48();
+        }
+        private void met49_60()
+        {
+            LinqObj49();
+            LinqObj50();
+            LinqObj51();
+            LinqObj52();
+            LinqObj53();
+            LinqObj54();
+            LinqObj55();
+            LinqObj56();
+            LinqObj57();
+            LinqObj58();
+            LinqObj59();
+            LinqObj60();
         }
         class LinqObj1_12
         {
@@ -137,9 +181,9 @@ namespace LinqProblems
         {
             public LinqObj25_36(string Surname, double Debt, int FlatNum)
             {
-                this.FlatNum = FlatNum;
-                this.Debt = Debt;
                 this.Surname = Surname;
+                this.Debt = Debt;
+                this.FlatNum = FlatNum;
             }
             public string Surname { get; set; }
             public double Debt { get; set; }
@@ -292,6 +336,146 @@ namespace LinqProblems
             new LinqObj25_36("Vdrbrb", 0, 143),
             new LinqObj25_36("Tesdv", 34634.34, 144),
         };
+        class LinqObj37_48
+        {
+            public LinqObj37_48(string Company, string Street, double Price, int Brand)
+            {
+                this.Company = Company;
+                this.Street = Street;
+                this.Price = Price;
+                this.Brand = Brand;
+            }
+            public string Company { get; set; }
+            public string Street { get; set; }
+            public double Price { get; set; }
+            public int Brand { get; set; }
+        }
+        private List<LinqObj37_48> linqObj37_48 = new List<LinqObj37_48>
+        {
+            new LinqObj37_48("ABK", "First", 26.56, 95),
+            new LinqObj37_48("ABK", "First", 28.12, 98),
+
+            new LinqObj37_48("ABK", "Second", 25.54, 92),
+            new LinqObj37_48("ABK", "Second", 26.47, 95),
+            new LinqObj37_48("ABK", "Second", 27.98, 98),
+
+            new LinqObj37_48("ABK", "Third", 25.43, 92),
+            new LinqObj37_48("ABK", "Third", 28.43, 98),
+
+            new LinqObj37_48("ABK", "Fourth", 26.38, 92),
+            new LinqObj37_48("ABK", "Fourth", 27.23, 95),
+
+            new LinqObj37_48("ABK", "Fifth", 24.98, 92),
+            new LinqObj37_48("ABK", "Fifth", 27.71, 98),
+
+            new LinqObj37_48("LOL", "First", 25.21, 92),
+            new LinqObj37_48("LOL", "First", 26.42, 95),
+            new LinqObj37_48("LOL", "First", 28.24, 98),
+
+            new LinqObj37_48("LOL", "Second", 25.61, 92),
+            new LinqObj37_48("LOL", "Second", 26.65, 95),
+            new LinqObj37_48("LOL", "Second", 28.01, 98),
+            
+            new LinqObj37_48("LOL", "Third", 26.75, 95),
+
+            new LinqObj37_48("LOL", "Fourth", 25.99, 92),
+            new LinqObj37_48("LOL", "Fourth", 27.12, 95),
+            new LinqObj37_48("LOL", "Fourth", 28.67, 98),
+
+            new LinqObj37_48("LOL", "Fifth", 24.79, 92),
+            new LinqObj37_48("LOL", "Fifth", 27.80, 98),
+
+            new LinqObj37_48("Kyiv", "First", 25.33, 92),
+            new LinqObj37_48("Kyiv", "First", 26.34, 95),
+            new LinqObj37_48("Kyiv", "First", 28.35, 98),
+
+            new LinqObj37_48("Kyiv", "Second", 25.41, 92),
+            new LinqObj37_48("Kyiv", "Second", 26.53, 95),
+            new LinqObj37_48("Kyiv", "Second", 28.31, 98),
+
+            new LinqObj37_48("Kyiv", "Third", 25.13, 92),
+            new LinqObj37_48("Kyiv", "Third", 28.04, 98),
+
+            new LinqObj37_48("Kyiv", "Fourth", 26.76, 92),
+            new LinqObj37_48("Kyiv", "Fourth", 27.13, 95),
+
+            new LinqObj37_48("Kyiv", "Fifth", 25.11, 92),
+            new LinqObj37_48("Kyiv", "Fifth", 26.03, 95),
+            new LinqObj37_48("Kyiv", "Fifth", 28.02, 98),
+            
+            new LinqObj37_48("LongName", "First", 26.25, 95),
+            new LinqObj37_48("LongName", "First", 28.19, 98),
+
+            new LinqObj37_48("LongName", "Second", 25.56, 92),
+            new LinqObj37_48("LongName", "Second", 26.34, 95),
+            new LinqObj37_48("LongName", "Second", 28.32, 98),
+
+            new LinqObj37_48("LongName", "Third", 25.32, 92),
+            new LinqObj37_48("LongName", "Third", 26.43, 95),
+            new LinqObj37_48("LongName", "Third", 28.54, 98),
+
+            new LinqObj37_48("LongName", "Fourth", 26.21, 92),
+            new LinqObj37_48("LongName", "Fourth", 27.71, 98),
+
+            new LinqObj37_48("LongName", "Fifth", 25.12, 92),
+            new LinqObj37_48("LongName", "Fifth", 25.81, 95),
+            new LinqObj37_48("LongName", "Fifth", 28.79, 98),
+
+            new LinqObj37_48("Interes", "First", 25.23, 92),
+            new LinqObj37_48("Interes", "First", 26.31, 95),
+            new LinqObj37_48("Interes", "First", 28.33, 98),
+            
+            new LinqObj37_48("Interes", "Second", 26.34, 95),
+            new LinqObj37_48("Interes", "Second", 28.54, 98),
+
+            new LinqObj37_48("Interes", "Third", 25.34, 92),
+            new LinqObj37_48("Interes", "Third", 26.57, 95),
+            new LinqObj37_48("Interes", "Third", 28.57, 98),
+
+            new LinqObj37_48("Interes", "Fourth", 25.78, 92),
+            new LinqObj37_48("Interes", "Fourth", 27.32, 95),
+            new LinqObj37_48("Interes", "Fourth", 29.21, 98),
+
+            new LinqObj37_48("Interes", "Fifth", 25.01, 92),
+            new LinqObj37_48("Interes", "Fifth", 27.99, 98),
+        };
+
+        class LinqObj49_60
+        {
+            public LinqObj49_60(string Surname, string Initials, int SchoolNumber, string EGE)
+            {
+                this.Surname = Surname;
+                this.Initials = Initials;
+                this.SchoolNumber = SchoolNumber;
+                this.EGE = EGE;
+            }
+            public string Surname { get; set; }
+            public string Initials { get; set; }
+            public int SchoolNumber { get; set; }
+            public string EGE { get; set; }
+        }
+
+        private List<LinqObj49_60> linqObj49_60 = new List<LinqObj49_60>
+        {
+            new LinqObj49_60("Qfwefwe", "Q.F.K.", 42, "24 42 76"),
+            new LinqObj49_60("Gsdfsd", "G.W.H.", 52, "64 39 85"),
+            new LinqObj49_60("Fsdf", "F.G.W.", 45, "24 85 23"),
+            new LinqObj49_60("Nfrgr", "N.F.J.", 45, "43 23 65"),
+            new LinqObj49_60("LGdfgr", "L.F.E.", 42, "23 65 98"),
+            new LinqObj49_60("Hfdge", "H.E.Y.", 26, "95 34 65"),
+            new LinqObj49_60("Lsdgsgse", "L.B.Y.", 65, "32 65 76"),
+            new LinqObj49_60("Owef", "O.E.Q.", 75, "34 67 84"),
+            new LinqObj49_60("Pdfgknrg", "Pgref", 57, "34 45 76"),
+            new LinqObj49_60("Psdfec", "P.G.W.", 75, "34 65 3"),
+            new LinqObj49_60("Pdfbvbr", "P.N.J.", 75, "54 56 23"),
+            new LinqObj49_60("Obfbqx", "O.K.L.", 34, "54 67 90"),
+            new LinqObj49_60("Kbfgnw", "K.L.O.", 24, "34 87 98"),
+            new LinqObj49_60("Kngfhnt", "K.R.W.", 98, "45 87 39"),
+            new LinqObj49_60("Jodgfmrn", "J.N.M.", 68, "39 86 90"),
+            new LinqObj49_60("Jnmwer", "J.N.M.", 68, "45 97 83"),
+            new LinqObj49_60("Ymvld", "Y.I.B.", 68, "45 86 83"),
+        };
+
 
 
         private void LinqObj1()
@@ -780,10 +964,293 @@ namespace LinqProblems
         private void LinqObj35()
         {
             Console.WriteLine("LinqObj35");
+            var results = linqObj25_36.Select(x => new { x.Debt, x.FlatNum, x.Surname, porch = Math.Truncate((double)(x.FlatNum - 1) / 36 + 1) })
+                .Where(x => x.Debt != 0)
+                .GroupBy(x => x.porch,
+                (k, g) => new { inf = g.Where(x => x.Debt < g.Average(y => y.Debt)) })
+                .SelectMany(x => x.inf)
+                .OrderBy(x => x.porch)
+                .ThenByDescending(x => x.Debt);
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.porch},{result.Debt},{result.Surname},{result.FlatNum}");
+            }
         }
         private void LinqObj36()
         {
             Console.WriteLine("LinqObj36");
+            var results = linqObj25_36.Select(x => new { x.Debt, x.FlatNum, x.Surname, Floor = Math.Truncate((double)(x.FlatNum - 1) / 16 + 1) })
+                .Where(x => x.Debt != 0)
+                .GroupBy(x => x.Floor,
+                (k, g) => new { inf = g.Where(x => x.Debt <= g.Average(y => y.Debt)) })
+                .SelectMany(x => x.inf)
+                .OrderBy(x => x.Floor)
+                .ThenBy(x => x.Debt);
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.Floor},{result.Debt},{result.Surname},{result.FlatNum}");
+            }
+        }
+        private void LinqObj37()
+        {
+            Console.WriteLine("LinqObj37");
+            var results = linqObj37_48.GroupBy(e => e.Brand,
+                (k, g) => new { k, min = g.Min(x => x.Price), max = g.Max(x => x.Price) })
+                .OrderByDescending(x => x.k);
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.k}, {result.min}, {result.max}");
+            }
+        }
+        private void LinqObj38()
+        {
+            Console.WriteLine("LinqObj38");
+            var results = linqObj37_48.GroupBy(e => e.Brand,
+                (k, g) => new { k, count = g.Count() })
+                .OrderBy(x => x.count)
+                .ThenBy(x => x.k);
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.count}, {result.k}");
+            }
+        }
+        private void LinqObj39()
+        {
+            Console.WriteLine("LinqObj39");
+            var M = 92;
+            var results = linqObj37_48.GroupBy(e => e.Street,
+                (k, g) => new { k, count = g.Count(x => x.Brand == M) })
+                .OrderBy(x => x.count)
+                .ThenBy(x => x.k);
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.count}, {result.k}");
+            }
+        }
+        private void LinqObj40()
+        {
+            Console.WriteLine("LinqObj40");
+            var results = linqObj37_48.GroupBy(e => e.Street,
+                (k, g) => new { k, count92 = g.Count(x => x.Brand == 92), count95 = g.Count(x => x.Brand == 95), count98 = g.Count(x => x.Brand == 98) })
+                .OrderBy(x => x.k);
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.k}, {result.count92}, {result.count95}, {result.count98}");
+            }
+        }
+        private void LinqObj41() /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        {
+            Console.WriteLine("LinqObj41");
+            var M = 91;
+            //var results = linqObj37_48.GroupBy(e => e.Street,
+            //    (k, g) => new { k, max = g.Where(x => x.Brand == M).Count() == 0 ? "No" : g.Where(x => x.Brand == M).Max(x => x.Price).ToString() })
+            //    .OrderBy(x => x.max.Where(y => y >= '0' && y <= '9' || y == ',').Count() == x.max.Count() ? Convert.ToDouble(x.max) : 0)
+            //    .ThenBy(x => x.k);
+            var results = linqObj37_48.Where(x => x.Brand == M)
+                .GroupBy(e => e.Street,
+                (k, g) => new { k, max = g.Max(x => x.Price) })
+                .OrderBy(x => x.max)
+                .ThenBy(x => x.k)
+                .Select(x => $"{x.max}, {x.k}")
+                .DefaultIfEmpty("no");
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result}");
+            }
+        }
+        private void LinqObj42()
+        {
+            Console.WriteLine("LinqObj42");
+            var results = linqObj37_48.GroupBy(e => e.Street,
+                (k, g) => new
+                {
+                    k,
+                    min92 = g.Where(x => x.Brand == 92).Select(x => x.Price).DefaultIfEmpty(0).Min(x => x),
+                    min95 = g.Where(x => x.Brand == 95).Select(x => x.Price).DefaultIfEmpty(0).Min(x => x),
+                    min98 = g.Where(x => x.Brand == 98).Select(x => x.Price).DefaultIfEmpty(0).Min(x => x),
+                })
+                .OrderBy(x => x.k);
+            //var results = linqObj37_48.GroupBy(e => e.Street,
+            //    (k, g) => new
+            //    {
+            //        k,
+            //        min92 = g.Where(x => x.Brand == 91).Count() == 0 ? 0 : g.Where(x => x.Brand == 92).Min(x => x.Price),
+            //        min95 = g.Where(x => x.Brand == 95).Count() == 0 ? 0 : g.Where(x => x.Brand == 95).Min(x => x.Price),
+            //        min98 = g.Where(x => x.Brand == 98).Count() == 0 ? 0 : g.Where(x => x.Brand == 98).Min(x => x.Price),
+            //    })
+            //    .OrderBy(x => x.k);
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.k}, {result.min92}, {result.min95}, {result.min98}");
+            }
+        }
+        private void LinqObj43()
+        {
+            Console.WriteLine("LinqObj43");
+            var M = 95;
+            var results = linqObj37_48.GroupBy(e => e.Company,
+                (k, g) => new {
+                    k,
+                    variation = g.Where(x => x.Brand == M).Count() == 0 
+                    ? -1 
+                    : g.Where(x => x.Brand == M).Max(x => x.Price) - g.Where(x => x.Brand == M).Min(x => x.Price)
+                })
+                .OrderByDescending(x => x.variation)
+                .ThenBy(x => x.k);
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.variation}, {result.k}");
+            }
+        }
+        private void LinqObj44()
+        {
+            Console.WriteLine("LinqObj44");
+            var results = linqObj37_48.GroupBy(e => e.Company,
+                (k, g) => new {
+                    k,
+                    variation92 = g.Where(x => x.Brand == 92).Count() == 0
+                    ? -1
+                    : g.Where(x => x.Brand == 92).Max(x => x.Price) - g.Where(x => x.Brand == 92).Min(x => x.Price),
+                    variation95 = g.Where(x => x.Brand == 95).Count() == 0
+                    ? -1
+                    : g.Where(x => x.Brand == 95).Max(x => x.Price) - g.Where(x => x.Brand == 95).Min(x => x.Price),
+                    variation98 = g.Where(x => x.Brand == 98).Count() == 0
+                    ? -1
+                    : g.Where(x => x.Brand == 98).Max(x => x.Price) - g.Where(x => x.Brand == 98).Min(x => x.Price)
+                })
+                .OrderBy(x => x.k);
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.k}, {result.variation92}, {result.variation95}, {result.variation98}");
+            }
+        }
+        private void LinqObj45()
+        {
+            Console.WriteLine("LinqObj45");
+            var results = linqObj37_48.GroupBy(e => new { e.Street, e.Company },
+                (k, g) => k)
+                .GroupBy(e => e.Street,
+                (k, g) => new { k, count = g.Count()})
+                .OrderBy(x => x.k);
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.k}, {result.count}");
+            }
+        }
+        private void LinqObj46()
+        {
+            Console.WriteLine("LinqObj46");
+            var results = linqObj37_48.GroupBy(e => new { e.Company, e.Street },
+                (k, g) => new {k, g})
+                .GroupBy(e => e.k.Company,
+                (k, g) => new {k,
+                    count = g.Count(x => 
+                    x.g.Select(y => y.Brand).Contains(92) 
+                    && x.g.Select(y => y.Brand).Contains(95) 
+                    && x.g.Select(y => y.Brand).Contains(98)) })
+                .OrderByDescending(x => x.count)
+                .ThenBy(x => x.k);
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.count}, {result.k}");
+            }
+        }
+        private void LinqObj47()
+        {
+            Console.WriteLine("LinqObj47");
+            var results = linqObj37_48.GroupBy(e => new { e.Company, e.Street },
+                (k, g) => new { k, count = g.Count() })
+                .Where(x => x.count >= 2)
+                .OrderBy(x => x.k.Company)
+                .ThenBy(x => x.k.Street)
+                .Select(x => $"{x.k.Company}, {x.k.Street}, {x.count}")
+                .DefaultIfEmpty("No");
+            foreach (var result in results)
+            {
+                Console.WriteLine(result);
+            }
+        }
+        private void LinqObj48()
+        {
+            Console.WriteLine("LinqObj48");
+            var results = linqObj37_48.SelectMany(x => linqObj37_48.Select(y => new { x.Street, y.Company}))
+                .Distinct()
+                .GroupJoin(linqObj37_48.Select(x => new { x.Brand, x.Company, x.Street}),
+                x => new { x.Company, x.Street },
+                y => new { y.Company, y.Street},
+                (k, g) => new { k, count = g.Count()})
+                .OrderBy(x => x.k.Street)
+                .ThenBy(x => x.k.Company);
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.k.Street}, {result.k.Company}, {result.count}");
+            }
+        }
+        private void LinqObj49()
+        {
+            Console.WriteLine("LinqObj49");
+            var min = linqObj49_60.Select(x => 
+            new {sum = Convert.ToInt32(x.EGE.Split(' ')[0])
+                + Convert.ToInt32(x.EGE.Split(' ')[1]) 
+                + Convert.ToInt32(x.EGE.Split(' ')[2]) })
+                .Min(x => x.sum);
+            var results = linqObj49_60.Select(x => 
+            new {x.Initials,
+                x.SchoolNumber,
+                x.Surname,
+                sum = Convert.ToInt32(x.EGE.Split(' ')[0]) 
+                + Convert.ToInt32(x.EGE.Split(' ')[1]) 
+                + Convert.ToInt32(x.EGE.Split(' ')[2]) })
+                .Where(x => x.sum == min);
+            Console.WriteLine(min);
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.Surname}, {result.Initials}, {result.SchoolNumber}");
+            }
+        }
+        private void LinqObj50()
+        {
+            Console.WriteLine("LinqObj50");
+        }
+        private void LinqObj51()
+        {
+            Console.WriteLine("LinqObj51");
+        }
+        private void LinqObj52()
+        {
+            Console.WriteLine("LinqObj52");
+        }
+        private void LinqObj53()
+        {
+            Console.WriteLine("LinqObj53");
+        }
+        private void LinqObj54()
+        {
+            Console.WriteLine("LinqObj54");
+        }
+        private void LinqObj55()
+        {
+            Console.WriteLine("LinqObj55");
+        }
+        private void LinqObj56()
+        {
+            Console.WriteLine("LinqObj56");
+        }
+        private void LinqObj57()
+        {
+            Console.WriteLine("LinqObj57");
+        }
+        private void LinqObj58()
+        {
+            Console.WriteLine("LinqObj58");
+        }
+        private void LinqObj59()
+        {
+            Console.WriteLine("LinqObj59");
+        }
+        private void LinqObj60()
+        {
+            Console.WriteLine("LinqObj60");
         }
     }
 }
