@@ -10,10 +10,10 @@ namespace LinqProblems
     {
         public void Run()
         {
-            met1_12();
-            met13_24();
-            met25_36();
-            met37_48();
+            //met1_12();
+            //met13_24();
+            //met25_36();
+            //met37_48();
             met49_60();
         }
         private void met1_12()
@@ -471,9 +471,15 @@ namespace LinqProblems
             new LinqObj49_60("Obfbqx", "O.K.L.", 34, "54 67 90"),
             new LinqObj49_60("Kbfgnw", "K.L.O.", 24, "34 87 98"),
             new LinqObj49_60("Kngfhnt", "K.R.W.", 98, "45 87 39"),
-            new LinqObj49_60("Jodgfmrn", "J.N.M.", 68, "39 86 90"),
+            new LinqObj49_60("Jodgfmrn", "J.N.M.", 68, "59 86 90"),
             new LinqObj49_60("Jnmwer", "J.N.M.", 68, "45 97 83"),
             new LinqObj49_60("Ymvld", "Y.I.B.", 68, "45 86 83"),
+            new LinqObj49_60("First", "F.H.T.", 31, "75 41 94"),
+            new LinqObj49_60("Second", "S.L.J.", 31, "39 64 94"),
+            new LinqObj49_60("First", "F.L.R.", 32, "41 65 85"),
+            new LinqObj49_60("Second", "S.U.L.", 32, "45 86 85"),
+            new LinqObj49_60("Kgerg", "K.W.L.", 75, "49 48 43"),
+            new LinqObj49_60("Fwefe", "F.B.M.", 29, "47 49 39"),
         };
 
 
@@ -1190,9 +1196,7 @@ namespace LinqProblems
         {
             Console.WriteLine("LinqObj49");
             var min = linqObj49_60.Select(x => 
-            new {sum = Convert.ToInt32(x.EGE.Split(' ')[0])
-                + Convert.ToInt32(x.EGE.Split(' ')[1]) 
-                + Convert.ToInt32(x.EGE.Split(' ')[2]) })
+            new {sum = x.EGE.Split(' ').Sum(y => Convert.ToInt32(y))})
                 .Min(x => x.sum);
             var results = linqObj49_60.Select(x => 
             new {x.Initials,
@@ -1211,38 +1215,155 @@ namespace LinqProblems
         private void LinqObj50()
         {
             Console.WriteLine("LinqObj50");
+            var maxTwo = linqObj49_60.Select(x =>
+            new { sum = x.EGE.Split(' ').Sum(y => Convert.ToInt32(y)) })
+                .OrderByDescending(x => x.sum)
+                .Take(2)
+                .Select(x => x.sum);
+            var results = linqObj49_60.Select(x =>
+            new {
+                x.Initials,
+                x.SchoolNumber,
+                x.Surname,
+                sum = Convert.ToInt32(x.EGE.Split(' ')[0])
+                + Convert.ToInt32(x.EGE.Split(' ')[1])
+                + Convert.ToInt32(x.EGE.Split(' ')[2])
+            })
+                .Where(x => x.sum == maxTwo.First() || x.sum == maxTwo.Last());
+            Console.WriteLine(maxTwo.First());
+            Console.WriteLine(maxTwo.Last());
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.Surname}, {result.Initials}, {result.SchoolNumber}");
+            }
         }
         private void LinqObj51()
         {
             Console.WriteLine("LinqObj51");
+            var results = linqObj49_60.GroupBy(e => e.SchoolNumber,
+                (k, g) => new { student = g.OrderByDescending(x => Convert.ToInt32(x.EGE.Split(' ')[2])).First()})
+                .Select(x => x.student)
+                .OrderBy(x => x.SchoolNumber);
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.SchoolNumber}, {result.Surname}, {result.Initials}, {result.EGE.Split(' ')[2]}");
+            }
         }
         private void LinqObj52()
         {
             Console.WriteLine("LinqObj52");
+            var results = linqObj49_60.GroupBy(e => e.SchoolNumber,
+                (k, g) => new { student = 
+                g.OrderBy(x => (x.EGE.Split(' ')
+                .Sum(y => Convert.ToInt32(y))))
+                .ThenBy(x => x.Surname)
+                .ThenBy(x => x.Initials)
+                .First() })
+                .Select(x => x.student)
+                .OrderByDescending(x => x.SchoolNumber);
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.SchoolNumber}," +
+                    $"{result.EGE.Split(' ').Sum(y => Convert.ToInt32(y))}," +
+                    $"{result.Surname}," +
+                    $"{result.Initials}");
+            }
         }
         private void LinqObj53()
         {
             Console.WriteLine("LinqObj53");
+            var results = linqObj49_60.GroupBy(e => e.SchoolNumber,
+                (k, g) => new {k, count = g.Count(x => (x.EGE.Split(' ').Sum(y => Convert.ToInt32(y))) > 150) })
+                .OrderByDescending(x => x.count)
+                .ThenBy(x => x.k);
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.count}, {result.k}");
+            }
         }
         private void LinqObj54()
         {
             Console.WriteLine("LinqObj54");
+            var results = linqObj49_60.GroupBy(e => e.SchoolNumber,
+                (k, g) => new { k, average = Convert.ToInt32(g.Average(x => (x.EGE.Split(' ').Sum(y => Convert.ToInt32(y))))) })
+                .OrderByDescending(x => x.average)
+                .ThenBy(x => x.k);
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.average}, {result.k}");
+            }
         }
         private void LinqObj55()
         {
             Console.WriteLine("LinqObj55");
+            var results = linqObj49_60.Where(x => x.EGE.Split(' ').All(y => Convert.ToInt32(y) >= 50))
+                .OrderBy(x => x.Surname)
+                .ThenBy(x => x.Initials)
+                .Select(x => $"{x.Surname}, {x.Initials}, {x.SchoolNumber}, {x.EGE.Split(' ').Sum(y => Convert.ToInt32(y))}")
+                .DefaultIfEmpty("Required students not found");
+            foreach (var result in results)
+            {
+                Console.WriteLine(result);
+            }
         }
         private void LinqObj56()
         {
             Console.WriteLine("LinqObj56");
+            var results = linqObj49_60.Where(x => x.EGE.Split(' ').Any(y => Convert.ToInt32(y) > 90))
+                .OrderBy(x => x.Surname)
+                .ThenBy(x => x.Initials)
+                .ThenBy(x => x.SchoolNumber)
+                .Select(x => $"{x.Surname}, {x.Initials}, {x.SchoolNumber}")
+                .DefaultIfEmpty("Required students not found");
+            foreach (var result in results)
+            {
+                Console.WriteLine(result);
+            }
         }
         private void LinqObj57()
         {
             Console.WriteLine("LinqObj57");
+            var results = linqObj49_60.GroupBy(e => e.SchoolNumber,
+                 (k, g) => new { students = 
+                 g.Where(x => x.EGE.Split(' ').All(y => Convert.ToInt32(y) < 50))
+                 .OrderBy(x => x.Surname)
+                 .ThenBy(x => x.Initials)
+                 .Take(3)})
+                 .SelectMany(x => x.students)
+                .OrderBy(x => x.SchoolNumber)
+                .ThenBy(x => x.Surname)
+                .ThenBy(x => x.Initials)
+                .Select(x => $"{x.SchoolNumber}, {x.Surname}, {x.Initials}")
+                .DefaultIfEmpty("Required students not found");
+            foreach (var result in results)
+            {
+                Console.WriteLine(result);
+            }
         }
         private void LinqObj58()
         {
             Console.WriteLine("LinqObj58");
+            var results = linqObj49_60.GroupBy(e => e.SchoolNumber,
+                 (k, g) => new
+                 {
+                     k,
+                     //l = g.Select(x => x.EGE.Split(' ').Count(y => Convert.ToInt32(y) >= 50)),
+                     first = g.Where(x => Convert.ToInt32(x.EGE.Split(' ')[0]) >= 50).Count(),
+                     secont = g.Where(x => Convert.ToInt32(x.EGE.Split(' ')[1]) >= 50).Count(),
+                     third = g.Where(x => Convert.ToInt32(x.EGE.Split(' ')[2]) >= 50).Count()
+                 })
+                .OrderBy(x => x.k);
+            //foreach (var f in results)
+            //{
+            //    foreach (var k in f.l)
+            //    {
+            //        Console.WriteLine(k);
+            //    }
+            //}
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.k}, {result.first}, {result.secont}, {result.third}");
+            }
         }
         private void LinqObj59()
         {
